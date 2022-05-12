@@ -1,0 +1,19 @@
+CREATE DATABASE IPL
+
+CREATE TABLE PUBLIC.Fixtures(Match_Number INTEGER, Home_Team VARCHAR(20), Away_Team VARCHAR(20), Venue VARCHAR(20), Team_Won VARCHAR(20), Team_Lost VARCHAR(20), Dummy_Column INTEGER)
+
+CREATE TABLE PUBLIC.Team_Details(SI_No int primary key not null,Team_Name VARCHAR(20),Captain VARCHAR(20),Owner VARCHAR(20),Home_Ground VARCHAR(20))
+
+COPY PUBLIC.Team_Details FROM 'C:\Users\mahavsingh\Downloads\Team_Details.csv'
+
+SELECT * FROM PUBLIC.Team_Details
+
+SELECT COUNT(Team_Name) AS total FROM PUBLIC.Team_Details
+COPY PUBLIC.Fixtures FROM 'C:\Users\mahavsingh\Documents\Fixtures.csv'
+
+SELECT * FROM PUBLIC.Fixtures
+WHERE Home_Team='RCB' AND Venue="Bangalore"
+
+SELECT Team_Lost FROM PUBLIC.Fixtures
+WHERE Venue='Kolkata'
+
